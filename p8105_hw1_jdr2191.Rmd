@@ -50,12 +50,23 @@ The factor variable results in 1s, 2s and 3s for each of the levels.
 Load the penguins dataset:
 ```{r}
 data("penguins", package = "palmerpenguins")
-
-penguins
 ```
 
 #Description of the penguins dataset using inline R code, including:
+```{r}
+view(penguins)
+nrow(penguins)
+ncol(penguins)
+mean(pull(penguins, flipper_length_mm))
+as.numeric(pull(penguins, flipper_length_mm))
+mean(pull(penguins, flipper_length_mm))
+mean(pull(penguins, flipper_length_mm), na.rm = T)
+```
 
-the data in this dataset, including names / values of important variables
-the size of the dataset (using nrow and ncol)
+`
+The dataset includes penguin species, island, bill length and depth, flipper length, body mass, sex and year.
+There are 8 columns and 344 rows.
+The mean flipper length is 200.9152 mm. 
+
+
 the mean flipper length
