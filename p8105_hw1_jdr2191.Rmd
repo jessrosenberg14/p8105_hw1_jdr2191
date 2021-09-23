@@ -47,4 +47,4 @@ The factor variable results in 1s, 2s and 3s for each of the levels.
  What happens, and why? Does this help explain what happens when you try to take the mean?
 
 ##Problem 2
-install.packages("palmerpenguins")
+data("penguins", package = "palmerpenguins")
