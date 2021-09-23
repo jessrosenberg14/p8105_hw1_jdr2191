@@ -47,4 +47,15 @@ The factor variable results in 1s, 2s and 3s for each of the levels.
  What happens, and why? Does this help explain what happens when you try to take the mean?
 
 ##Problem 2
+Load the penguins dataset:
+```{r}
 data("penguins", package = "palmerpenguins")
+
+penguins
+```
+
+#Description of the penguins dataset using inline R code, including:
+
+the data in this dataset, including names / values of important variables
+the size of the dataset (using nrow and ncol)
+the mean flipper length
