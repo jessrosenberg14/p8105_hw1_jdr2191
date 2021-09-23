@@ -12,7 +12,7 @@ First I will load the tidyverse
 library(tidyverse)
 ```
 
-
+Problem 1
 ```{r}
 problem1_df = tibble(
   norm_samp = rnorm(10),
@@ -23,13 +23,23 @@ problem1_df = tibble(
   problem1_df
 )
 ```
+Calculate Means:
+```{r}
+mean(pull(problem1_df, norm_samp))
+```
+Mean for norm_samp = -0.1230888
 
+```{r}
+mean(pull(problem1_df, norm_samp_pos))
+```
+Mean for norm_samp_pos = 0.4
 
-Create a data frame comprised of:
+```{r}
+mean(pull(problem1_df, vec_char))
+```
+Cannot take the mean: argument is not numeric or logical: returning NA
 
-a random sample of size 10 from a standard Normal distribution
-a logical vector indicating whether elements of the sample are greater than 0
-a character vector of length 10
-a factor vector of length 10, with 3 different factor “levels”
-
-
+```{r}
+mean(pull(problem1_df, vec_factor))
+```
+Cannot take the mean: argument is not numeric or logical: returning NA
