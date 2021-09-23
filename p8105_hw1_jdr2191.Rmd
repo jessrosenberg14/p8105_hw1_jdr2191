@@ -20,8 +20,8 @@ problem1_df = tibble(
   vec_char = c("A","B","C","D","E","F","G","H","I","J"),
   vec_factor = factor(c("purple","purple","purple","purple","blue","blue","blue",
                         "red","red","red")),
-  problem1_df
 )
+ problem1_df
 ```
 
 `Calculate Means:`
@@ -69,6 +69,6 @@ The mean flipper length is 200.9152 mm.
 
 `Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable`
 ```{r}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
 ```
 
