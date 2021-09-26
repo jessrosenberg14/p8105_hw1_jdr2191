@@ -72,3 +72,21 @@ Making a scatterplot of flipper_length_mm vs bill_length_mm with color points us
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
 ```
 
+Save the scatterplot
+```{r}
+ggsave(
+  penguins,
+  plot = last_plot(),
+  device = "jpeg",
+  path = NULL,
+  scale = 1,
+  width = NA,
+  height = NA,
+  dpi = 300,
+  limitsize = TRUE,
+  bg = NULL
+)
+
+```
+
+
