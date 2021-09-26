@@ -31,10 +31,10 @@ mean(pull(problem1_df, norm_samp_pos))
 mean(pull(problem1_df, vec_char))
 mean(pull(problem1_df, vec_factor))
 ```
-  `norm_samp mean = -0.1230888
-  norm_samp_pos mean = 0.4
-  vec_char mean = cannot take the mean: argument is not numeric or logical: returning NA
-  vec_factor mean = cannot take the mean: argument is not numeric or logical: returning NA`
+The mean of norm_samp (numeric variable) = -0.1230888
+The mean norm_samp_pos (logical variable) = 0.4
+The mean of vec_char (character variable) = cannot be calculated (the argument is not numeric or logical: returning NA)
+The mean of vec_factor (factor variable) = cannot be calculated (argument is not numeric or logical: returning NA)
   
 ```{r, results="hide"}
 as.numeric(pull(problem1_df, norm_samp_pos))
