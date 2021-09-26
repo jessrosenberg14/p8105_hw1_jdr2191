@@ -5,7 +5,7 @@ due date: "29SEP2021"
 output: github_document
 ---
 
-##Problem 1
+#Problem 1
 
 Loading the tidyverse
 ```{r}
@@ -41,13 +41,13 @@ as.numeric(pull(problem1_df, norm_samp_pos))
 as.numeric(pull(problem1_df, vec_char))
 as.numeric(pull(problem1_df, vec_factor))
 ```
-`The logical variable is converted to all 1s and 0s.
-The chracter variable results in all NAs with a warning message.
-The factor variable results in 1s, 2s and 3s for each of the levels. 
+`
+The logical variable is converted to all 1s and 0s. This happens because our logical variable is binary (false becomes 0 and true becomes 1). When we took the mean of the logical variable, we got a result, which makes sense as we are taking the mean of 0s and 1s, which is possible.
+The chracter variable results in all NAs with a warning message. This happens because character variables cannot easily be converted to numeric variables as the categories do not have numeric equivalents. When we tried to take the mean of then character vector we got an error, which makes sense because it is not possible to take the mean of character/text values.
+The factor variable is converted into 1s, 2s and 3s, where each level corresponds to a number. We were previously unable to take the mean of the vector variable as each level was text, but we are able to convert a factor variable to a numeric variable and subsequently take its mean. 
+`
 
- What happens, and why? Does this help explain what happens when you try to take the mean?`
-
-##Problem 2
+#Problem 2
 Loading the penguins dataset:
 ```{r}
 data("penguins", package = "palmerpenguins")
@@ -74,19 +74,7 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) 
 
 Save the scatterplot
 ```{r}
-ggsave(
-  penguins,
-  plot = last_plot(),
-  device = "jpeg",
-  path = NULL,
-  scale = 1,
-  width = NA,
-  height = NA,
-  dpi = 300,
-  limitsize = TRUE,
-  bg = NULL
-)
-
+ggsave("penguin_plot.pdf", height = 4, width = 6)
 ```
 
 
