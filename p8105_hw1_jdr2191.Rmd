@@ -5,14 +5,13 @@ due date: "29SEP2021"
 output: github_document
 ---
 
-#Problem 1
+## Problem 1
 
 Loading the tidyverse
 ```{r}
 library(tidyverse)
 ```
 
-Problem 1
 ```{r}
 problem1_df = tibble(
   norm_samp = rnorm(10),
@@ -31,10 +30,13 @@ mean(pull(problem1_df, norm_samp_pos))
 mean(pull(problem1_df, vec_char))
 mean(pull(problem1_df, vec_factor))
 ```
-The mean of norm_samp (numeric variable) = -0.1230888
-The mean norm_samp_pos (logical variable) = 0.4
-The mean of vec_char (character variable) = cannot be calculated (the argument is not numeric or logical: returning NA)
-The mean of vec_factor (factor variable) = cannot be calculated (argument is not numeric or logical: returning NA)
+The mean of norm_samp (numeric variable) = -0.1230888.
+
+The mean norm_samp_pos (logical variable) = 0.4.
+
+The mean of vec_char (character variable) = cannot be calculated (the argument is not numeric or logical: returning NA).
+
+The mean of vec_factor (factor variable) = cannot be calculated (argument is not numeric or logical: returning NA).
   
 ```{r, results="hide"}
 as.numeric(pull(problem1_df, norm_samp_pos))
@@ -47,13 +49,13 @@ The chracter variable results in all NAs with a warning message. This happens be
 The factor variable is converted into 1s, 2s and 3s, where each level corresponds to a number. We were previously unable to take the mean of the vector variable as each level was text, but we are able to convert a factor variable to a numeric variable and subsequently take its mean. 
 `
 
-#Problem 2
+## Problem 2
 Loading the penguins dataset:
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
 
-#Description of the penguins dataset using inline R code, including:
+Description of the penguins dataset using inline R code, including:
 ```{r}
 view(penguins)
 nrow(penguins)
