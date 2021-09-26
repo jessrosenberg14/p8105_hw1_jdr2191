@@ -7,10 +7,12 @@ output: github_document
 
 ## Problem 1
 
-Loading the tidyverse
+First, I will load the tidyverse.
 ```{r}
 library(tidyverse)
 ```
+
+Next, I will create a dataframe that includes a random sample of size 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10, with 3 different factor “levels”. I will also ensure that this was done correctly by looking at the dataframe after I create the required variables.
 
 ```{r}
 problem1_df = tibble(
@@ -23,7 +25,7 @@ problem1_df = tibble(
  problem1_df
 ```
 
-Calculating Means
+Next, I will attempt to take the mean of each of these variables I just created. 
 ```{r}
 mean(pull(problem1_df, norm_samp))
 mean(pull(problem1_df, norm_samp_greater10))
@@ -37,6 +39,8 @@ The mean norm_samp_greater10 (logical variable) = 0.4.
 The mean of letter_char (character variable) = cannot be calculated (the argument is not numeric or logical: returning NA).
 
 The mean of color_factor (factor variable) = cannot be calculated (argument is not numeric or logical: returning NA).
+
+To further investigate what is happening here, I will convert the logical, character, and factor varibles to numeric variables. 
   
 ```{r, results="hide"}
 as.numeric(pull(problem1_df, norm_samp_greater10))
@@ -50,12 +54,12 @@ The factor variable is converted into 1s, 2s and 3s, where each level correspond
 `
 
 ## Problem 2
-Loading the penguins dataset:
+First, I will load the penguins dataset.
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
 
-Description of the penguins dataset using inline R code, including:
+In order to describe the penguins dataset, I will run some code to find the number of observations, rows, and columns, as well as the mean value for flipper length (with flipper lengths of NA excluded).
 ```{r}
 view(penguins)
 nrow(penguins)
@@ -69,12 +73,12 @@ There are 8 columns and 344 rows.
 The mean flipper length is 200.9152 mm. 
 `
 
-Making a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable
+Next, I will generate a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable.
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
 ```
 
-Save the scatterplot
+Lastly, I will save this scatterplot to my working directory.
 ```{r}
 ggsave("penguin_plot.pdf", height = 4, width = 6)
 ```
