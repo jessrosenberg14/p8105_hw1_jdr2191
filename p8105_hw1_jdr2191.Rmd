@@ -53,11 +53,15 @@ The factor variable is converted into 1s, 2s and 3s, where each level correspond
 First, I will load the penguins dataset.
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
+
+penguins
 ```
 
 Next, we will describe the penguins dataset.
 
-The dataset includes the following variables: `r colnames(penguins)`. There are `r ncol(penguins)` columns and `r nrow(penguins)` rows in the penguins dataset. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = T)` (excluding two values = NA).
+The dataset includes the following variables: `r colnames(penguins)`. The data was collected from `r min(pull(penguins, year))` to `r max(pull(penguins, year))`. The dataset includes penguins from the islands of `r levels(pull(penguins, island))` and includes penguins from the following species: `r levels(pull(penguins, species))`.
+
+There are `r ncol(penguins)` columns and `r nrow(penguins)` rows in the penguins dataset. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = T)` (excluding two values = NA).
 
 Next, I will generate a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable.
 ```{r plot_penguins}
