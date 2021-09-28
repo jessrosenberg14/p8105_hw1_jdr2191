@@ -32,15 +32,12 @@ mean(pull(problem1_df, norm_samp_greater0))
 mean(pull(problem1_df, letter_char))
 mean(pull(problem1_df, color_factor))
 ```
-The mean of norm_samp (numeric variable) = -0.1230888.
 
-The mean norm_samp_greater10 (logical variable) = 0.4.
+We can take the mean of our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
 
-The mean of letter_char (character variable) = cannot be calculated (the argument is not numeric or logical: returning NA).
+We cannot take the eman of our character variable (letter_char) or our factor variable (color_factor). When we attempt to do these, we get the following error: "the argument is not numeric or logical: returning NA."
 
-The mean of color_factor (factor variable) = cannot be calculated (argument is not numeric or logical: returning NA).
-
-To further investigate what is happening here, I will convert the logical, character, and factor varibles to numeric variables. 
+To further investigate what is happening here, I will convert the logical, character, and factor variables to numeric variables. 
   
 ```{r, results="hide"}
 as.numeric(pull(problem1_df, norm_samp_greater10))
