@@ -12,7 +12,7 @@ First, I will load the tidyverse.
 library(tidyverse)
 ```
 
-Next, I will create a dataframe that includes a random sample of size 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10, with 3 different factor “levels”. I will also ensure that this was done correctly by looking at the dataframe after I create the required variables.
+Next, I will create a dataframe that includes the following variables: a random sample of size 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10, with 3 different factor “levels”. I will ensure that this was done correctly by looking at the dataframe after I create the required variables.
 
 ```{r creating_df}
 problem1_df = tibble(
@@ -33,11 +33,11 @@ mean(pull(problem1_df, letter_char))
 mean(pull(problem1_df, color_factor))
 ```
 
-We can take the mean of both our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
+We are able to take the mean of both our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
 
-We cannot take the mean of our character variable (letter_char) or our factor variable (color_factor). When we attempt to do these, we get the following error: "the argument is not numeric or logical: returning NA."
+We are unable to take the mean of our character variable (letter_char) and our factor variable (color_factor). When we attempt to do these, we get the following warning message: "argument is not numeric or logical: returning NA."
 
-To further investigate what is happening here, I will convert the logical, character, and factor variables to numeric variables. 
+Next, I will convert the logical, character, and factor variables to numeric variables without showing the output. 
   
 ```{r, convert_numeric, results="hide"}
 as.numeric(pull(problem1_df, norm_samp_greater0))
@@ -45,9 +45,9 @@ as.numeric(pull(problem1_df, letter_char))
 as.numeric(pull(problem1_df, color_factor))
 ```
 
-The logical variable is converted to all 1s and 0s. This happens because our logical variable is binary (false becomes 0 and true becomes 1). When we took the mean of the logical variable, we got a result, which makes sense as we are taking the mean of 0s and 1s, which is possible.
-The character variable results in all NAs with a warning message. This happens because character variables cannot easily be converted to numeric variables as the categories do not have numeric equivalents. When we tried to take the mean of then character vector we got an error, which makes sense because it is not possible to take the mean of character/text values.
-The factor variable is converted into 1s, 2s and 3s, where each level corresponds to a number. We were previously unable to take the mean of the vector variable as each level was text, but we are able to convert a factor variable to a numeric variable and subsequently take its mean. 
+* When I apply the "as.numeric" function to the logical variable, the variable is converted to all 1s and 0s. This happens because our logical variable is binary (false becomes 0 and true becomes 1). This makes sense given that when we took the mean of the logical variable, we got a numeric result. Taking the mean of this logical variable is possible because we are taking the mean of 0s and 1s.
+* When I apply the "as.numeric" function to the character variable, the variable results in all NAs with a warning message. This happens because character variables cannot easily be converted to numeric variables as the categories do not have numeric equivalents. When we tried to take the mean of then character variable we got an error, which makes sense because it is not possible to take the mean of character values.
+* When I apply the "as.numeric" function to the factor variable, the variable is converted into 1s, 2s and 3s, where each level (in this case, color) corresponds to a number. We were previously unable to take the mean of the factor variable as each level was text, but we are able to convert a factor variable to a numeric variable and subsequently take its mean. 
 
 ## Problem 2
 First, I will load the penguins dataset.
@@ -57,18 +57,18 @@ data("penguins", package = "palmerpenguins")
 penguins
 ```
 
-Next, we will describe the penguins dataset.
+Next, I will describe the penguins dataset using inline R code.
 
 The dataset includes the following variables: `r colnames(penguins)`. The data was collected from `r min(pull(penguins, year))` to `r max(pull(penguins, year))`. The dataset includes penguins from the islands of `r levels(pull(penguins, island))` and includes penguins from the following species: `r levels(pull(penguins, species))`. 
 
 There are `r ncol(penguins)` columns and `r nrow(penguins)` rows in the penguins dataset. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = T)` (excluding two values = NA).
 
-Next, I will generate a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable.
+Next, I will generate a scatterplot of Flipper Length (in mm) vs Bill Length (in mm), differentiating species by different colors. I will exclude values that are = NA.
 ```{r plot_penguins}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point(na.rm=T)
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point(na.rm=T)
 ```
 
-Lastly, I will save this scatterplot to my working directory.
+Lastly, I will export and save this scatterplot to my working directory.
 ```{r save_plot_penguins}
 ggsave("penguin_plot.pdf", height = 4, width = 6)
 ```
