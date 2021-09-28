@@ -33,7 +33,7 @@ mean(pull(problem1_df, letter_char))
 mean(pull(problem1_df, color_factor))
 ```
 
-We can take the mean of our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
+We can take the mean of both our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
 
 We cannot take the mean of our character variable (letter_char) or our factor variable (color_factor). When we attempt to do these, we get the following error: "the argument is not numeric or logical: returning NA."
 
@@ -44,11 +44,10 @@ as.numeric(pull(problem1_df, norm_samp_greater10))
 as.numeric(pull(problem1_df, letter_char))
 as.numeric(pull(problem1_df, color_factor))
 ```
-`
+
 The logical variable is converted to all 1s and 0s. This happens because our logical variable is binary (false becomes 0 and true becomes 1). When we took the mean of the logical variable, we got a result, which makes sense as we are taking the mean of 0s and 1s, which is possible.
-The chracter variable results in all NAs with a warning message. This happens because character variables cannot easily be converted to numeric variables as the categories do not have numeric equivalents. When we tried to take the mean of then character vector we got an error, which makes sense because it is not possible to take the mean of character/text values.
+The character variable results in all NAs with a warning message. This happens because character variables cannot easily be converted to numeric variables as the categories do not have numeric equivalents. When we tried to take the mean of then character vector we got an error, which makes sense because it is not possible to take the mean of character/text values.
 The factor variable is converted into 1s, 2s and 3s, where each level corresponds to a number. We were previously unable to take the mean of the vector variable as each level was text, but we are able to convert a factor variable to a numeric variable and subsequently take its mean. 
-`
 
 ## Problem 2
 First, I will load the penguins dataset.
