@@ -17,7 +17,7 @@ Next, I will create a dataframe that includes a random sample of size 10 from a 
 ```{r}
 problem1_df = tibble(
   norm_samp = rnorm(10),
-  norm_samp_greater10 = norm_samp > 0,
+  norm_samp_greater0 = norm_samp > 0,
   letter_char = c("A","B","C","D","E","F","G","H","I","J"),
   color_factor = factor(c("purple","purple","purple","purple","blue","blue","blue",
                         "red","red","red")),
@@ -28,7 +28,7 @@ problem1_df = tibble(
 Next, I will attempt to take the mean of each of these variables I just created. 
 ```{r}
 mean(pull(problem1_df, norm_samp))
-mean(pull(problem1_df, norm_samp_greater10))
+mean(pull(problem1_df, norm_samp_greater0))
 mean(pull(problem1_df, letter_char))
 mean(pull(problem1_df, color_factor))
 ```
