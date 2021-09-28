@@ -8,13 +8,13 @@ output: github_document
 ## Problem 1
 
 First, I will load the tidyverse.
-```{r}
+```{r load_tidyverse}
 library(tidyverse)
 ```
 
 Next, I will create a dataframe that includes a random sample of size 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10, with 3 different factor “levels”. I will also ensure that this was done correctly by looking at the dataframe after I create the required variables.
 
-```{r}
+```{r creating_df}
 problem1_df = tibble(
   norm_samp = rnorm(10),
   norm_samp_greater0 = norm_samp > 0,
@@ -26,7 +26,7 @@ problem1_df = tibble(
 ```
 
 Next, I will attempt to take the mean of each of these variables I just created. 
-```{r}
+```{r means}
 mean(pull(problem1_df, norm_samp))
 mean(pull(problem1_df, norm_samp_greater0))
 mean(pull(problem1_df, letter_char))
@@ -35,11 +35,11 @@ mean(pull(problem1_df, color_factor))
 
 We can take the mean of our numeric variable (norm_samp) and our logical variable (norm_samp_greater0). 
 
-We cannot take the eman of our character variable (letter_char) or our factor variable (color_factor). When we attempt to do these, we get the following error: "the argument is not numeric or logical: returning NA."
+We cannot take the mean of our character variable (letter_char) or our factor variable (color_factor). When we attempt to do these, we get the following error: "the argument is not numeric or logical: returning NA."
 
 To further investigate what is happening here, I will convert the logical, character, and factor variables to numeric variables. 
   
-```{r, results="hide"}
+```{r, convert_numeric results="hide"}
 as.numeric(pull(problem1_df, norm_samp_greater10))
 as.numeric(pull(problem1_df, letter_char))
 as.numeric(pull(problem1_df, color_factor))
@@ -52,12 +52,12 @@ The factor variable is converted into 1s, 2s and 3s, where each level correspond
 
 ## Problem 2
 First, I will load the penguins dataset.
-```{r}
+```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 ```
 
 In order to describe the penguins dataset, I will run some code to find the number of observations, rows, and columns, as well as the mean value for flipper length (with flipper lengths of NA excluded).
-```{r}
+```{r penguins_details}
 view(penguins)
 nrow(penguins)
 ncol(penguins)
@@ -71,12 +71,12 @@ The mean flipper length is 200.9152 mm.
 `
 
 Next, I will generate a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable.
-```{r}
+```{r plot_penguins}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
 ```
 
 Lastly, I will save this scatterplot to my working directory.
-```{r}
+```{r save_plot_penguins}
 ggsave("penguin_plot.pdf", height = 4, width = 6)
 ```
 
