@@ -39,8 +39,8 @@ We cannot take the mean of our character variable (letter_char) or our factor va
 
 To further investigate what is happening here, I will convert the logical, character, and factor variables to numeric variables. 
   
-```{r, convert_numeric results="hide"}
-as.numeric(pull(problem1_df, norm_samp_greater10))
+```{r, convert_numeric, results="hide"}
+as.numeric(pull(problem1_df, norm_samp_greater0))
 as.numeric(pull(problem1_df, letter_char))
 as.numeric(pull(problem1_df, color_factor))
 ```
@@ -55,19 +55,9 @@ First, I will load the penguins dataset.
 data("penguins", package = "palmerpenguins")
 ```
 
-In order to describe the penguins dataset, I will run some code to find the number of observations, rows, and columns, as well as the mean value for flipper length (with flipper lengths of NA excluded).
-```{r penguins_details}
-view(penguins)
-nrow(penguins)
-ncol(penguins)
-mean(pull(penguins, flipper_length_mm), na.rm = T)
-```
+Next, we will describe the penguins dataset.
 
-`
-The dataset includes penguin species, island, bill length and depth, flipper length, body mass, sex and year.
-There are 8 columns and 344 rows.
-The mean flipper length is 200.9152 mm. 
-`
+The dataset includes the following variables: `r colnames(penguins)`. There are `r ncol(penguins)` columns and `r nrow(penguins)` rows in the penguins dataset. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = T)` (excluding two values = NA).
 
 Next, I will generate a scatterplot of flipper_length_mm vs bill_length_mm with color points using the species variable.
 ```{r plot_penguins}
